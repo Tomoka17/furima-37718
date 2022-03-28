@@ -2,21 +2,20 @@
 
 ## usersテーブル
 
-| Column                | Type      | Option                 |
-|-------------------------------------------------------------
-| email                 | string    | null: false, ユニーク制約|
-| encrypted_password    | string    | null: false            |
-| nickname              | string    | null: false            |
-| first_name            | string    | null: false            |
-| last_name             | string    | null: false            |
-| first_name_kana       | string    | null: false            |
-| last_name_kana        | string    | null: false            |
-| birth_day             | integer   | null: false            |
+| Column                | Type      | Option                   |
+|--------------------------------------------------------------|
+| email                 | string    | null: false, unique: true|
+| encrypted_password    | string    | null: false              |
+| nickname              | string    | null: false              |
+| first_name            | string    | null: false              |
+| last_name             | string    | null: false              |
+| first_name_kana       | string    | null: false              |
+| last_name_kana        | string    | null: false              |
+| birthday              | date      | null: false              |
 
 ## Association
  has_many :items
  has_many :orders
- has_one :destination
 
 ## itemsテーブル
 
@@ -41,7 +40,7 @@
 
 | Column      | Type        | Option                          |
 |-------------------------------------------------------------|
-| user_id     | references  | null: false, foreign_key: true  |
+| user        | references  | null: false, foreign_key: true  |
 | item_id     | references  | null: false, foreign_key: true  |
 
 ## Association
@@ -53,14 +52,10 @@
 
 | Column          | Type      | Option                            |
 |-----------------------------------------------------------------|
-| user_id         | references | null: false, foreign_key, true   |
-| postal_code     | integer    | null: false                      |
+| user            | references | null: false, foreign_key, true   |
+| postal_code     | string     | null: false                      |
 | region          | string     | null: false                      |
 | city            | string     | null: false                      |
-| address         | text       | null: false                      |
-| building_name   | text       | null: false                      |
-| phone_number    | integer    | null: false                      |
-
-## Association
- belongs_to :user
- belongs_to :order
+| address         | string     | null: false                      |
+| building_name   | string     | null: false                      |
+| phone_number    | string     | null: false                      |
