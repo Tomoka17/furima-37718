@@ -30,7 +30,6 @@
 | freight_id        | integer    | null: false                    |
 | ship_from _id     | integer    | null: false                    |
 | day_to_ship_id    | integer    | null: false                    |
-| region_id         | integer    | null: false                    |
 
 ## Association
  belongs_to :user
@@ -41,7 +40,7 @@
 
 | Column      | Type        | Option                          |
 |-------------------------------------------------------------|
-| user_id     | references  | null: false, foreign_key: true  |
+| user        | references  | null: false, foreign_key: true  |
 | item        | references  | null: false, foreign_key: true  |
 
 ## Association
@@ -53,13 +52,13 @@
 
 | Column          | Type      | Option                            |
 |-----------------------------------------------------------------|
-| user            | references | null: false, foreign_key: true   |
 | postal_code     | string     | null: false                      |
 | region_id       | integer    | null: false, foreign_key: true   |
 | city            | string     | null: false                      |
 | address         | string     | null: false                      |
 | building_name   | string     |                                  |
 | phone_number    | string     | null: false                      |
+| order           | references | null: false, foreign_key: true   |
 
 ## Association
  belongs_to :order
