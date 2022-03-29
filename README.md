@@ -25,12 +25,12 @@
 | price             | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
 | description       | text       | null: false                    |
-| category_id       | integer    | null: false, foreign_key: true |
-| item_status_id    | integer    | null: false, foreign_key: true |
-| freight_id        | integer    | null: false, foreign_key: true |
-| ship_from _id     | integer    | null: false, foreign_key: true |
-| day_to_ship_id    | integer    | null: false, foreign_key: true |
-| region_id         | integer    | null: false, foreign_key: true |
+| category_id       | integer    | null: false                    |
+| item_status_id    | integer    | null: false                    |
+| freight_id        | integer    | null: false                    |
+| ship_from _id     | integer    | null: false                    |
+| day_to_ship_id    | integer    | null: false                    |
+| region_id         | integer    | null: false                    |
 
 ## Association
  belongs_to :user
@@ -41,7 +41,7 @@
 
 | Column      | Type        | Option                          |
 |-------------------------------------------------------------|
-| buyer_id    | references  | null: false, foreign_key: true  |
+| user_id     | references  | null: false, foreign_key: true  |
 | item        | references  | null: false, foreign_key: true  |
 
 ## Association
@@ -58,7 +58,7 @@
 | region_id       | integer    | null: false, foreign_key: true   |
 | city            | string     | null: false                      |
 | address         | string     | null: false                      |
-| building_name   | string     | null: false                      |
+| building_name   | string     |                                  |
 | phone_number    | string     | null: false                      |
 
 ## Association
