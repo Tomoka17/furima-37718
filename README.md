@@ -23,13 +23,14 @@
 |-----------------------------------------------------------------|
 | name              | string     | null: false                    |
 | price             | integer    | null: false                    |
-| user_id           | references | null: false, foreign_key: true |
+| user              | references | null: false, foreign_key: true |
 | description       | text       | null: false                    |
-| category          | string     | null: false                    |
-| item_status       | string     | null: false                    |
-| freight           | string     | null: false                    |
-| ship_from         | string     | null: false                    |
-| day_to_ship       | string     | null: false                    |
+| category_id       | integer    | null: false, foreign_key: true |
+| item_status_id    | integer    | null: false, foreign_key: true |
+| freight_id        | integer    | null: false, foreign_key: true |
+| ship_from _id     | integer    | null: false, foreign_key: true |
+| day_to_ship_id    | integer    | null: false, foreign_key: true |
+| region_id         | integer    | null: false, foreign_key: true |
 
 ## Association
  belongs_to :user
@@ -40,22 +41,25 @@
 
 | Column      | Type        | Option                          |
 |-------------------------------------------------------------|
-| user        | references  | null: false, foreign_key: true  |
-| item_id     | references  | null: false, foreign_key: true  |
+| buyer_id    | references  | null: false, foreign_key: true  |
+| item        | references  | null: false, foreign_key: true  |
 
 ## Association
  belongs_to :user
  belongs_to :item
  has_one :destination
 
-## destination
+## destinationsテーブル
 
 | Column          | Type      | Option                            |
 |-----------------------------------------------------------------|
-| user            | references | null: false, foreign_key, true   |
+| user            | references | null: false, foreign_key: true   |
 | postal_code     | string     | null: false                      |
-| region          | string     | null: false                      |
+| region_id       | integer    | null: false, foreign_key: true   |
 | city            | string     | null: false                      |
 | address         | string     | null: false                      |
 | building_name   | string     | null: false                      |
 | phone_number    | string     | null: false                      |
+
+## Association
+ belongs_to :order
