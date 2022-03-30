@@ -7,7 +7,7 @@ FactoryBot.define do
     last_name       { japanese_user.last.kanji }
     last_name_kana  { japanese_user.last.katakana }
     email           { Faker::Internet.free_email }
-    password        { Faker::Internet.password }
+    password        { '1a' + Faker::Internet.password(min_length: 4) }
     password_confirmation { password }
     nickname        { Faker::Name.initials(number: 2) }
     birthday        { Faker::Date.birthday(min_age: 5, max_age: 92) }
