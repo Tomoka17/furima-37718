@@ -4,10 +4,10 @@ FactoryBot.define do
     price       {Faker::Commerce.price(range:300..9999999)}
     description {Faker::Lorem.sentence}
     association :user
-    association :category
-    association :item_status
-    association :freight
-    association :ship_from
-    association :day_to_ship
+    category    {2}
+    item_status {2}
+    freight     {2}
+    ship_from   {2}
+    day_to_ship {2}
   end
 end
