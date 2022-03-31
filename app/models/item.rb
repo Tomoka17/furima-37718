@@ -10,5 +10,6 @@ class Item < ApplicationRecord
   validates :day_to_ship_id, presence: true
 
   belongs_to :user
+  has_one_attached :image
   # has_one :order
 end
