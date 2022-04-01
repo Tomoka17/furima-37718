@@ -4,11 +4,15 @@ class Item < ApplicationRecord
   has_one_attached :image
   # has_one :order
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :day_to_ship, :freight, :item_status, :ship_from
+  belongs_to :category
+  belongs_to :day_to_ship
+  belongs_to :freight
+  belongs_to :item_status
+  belongs_to :ship_from
 
   validates :image, presence: true
   validates :name, presence: true, length: { maximum: 40 }
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/i },numericality: {
+  validates :price, presence: true, numericality: {
     only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to:9999999
   }
   validates :user, presence: true
