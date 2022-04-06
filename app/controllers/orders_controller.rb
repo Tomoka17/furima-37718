@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       @order_destination.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
 
