@@ -11,12 +11,11 @@ class OrderDestination
       validates :city
       validates :address
       validates :phone_number, format: {with: /\d{10,11}/}, length: {maximum: 11}
-      validates :order_id
   end
 
   def save
-    order = Order.create(user_id: user.id, item_id: item.id)
-    Destination.create(postal_code: postal_code, ship_from_id: ship_from_id, city: city, address: address, building_name: building_name, order_id: order.id)
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Destination.create(postal_code: postal_code, ship_from_id: ship_from_id, city: city, address: address, building_name: building_name, phone_number: phone_number, order_id: order_id)
   end
 end
 
