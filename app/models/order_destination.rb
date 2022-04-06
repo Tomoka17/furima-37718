@@ -11,7 +11,7 @@ class OrderDestination
       validates :city
       validates :address
       validates :phone_number, format: {with: /\d{10,11}/}, length: {maximum: 11}
-      validatas :token
+      validates :token
   end
 
   def save

@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   private
-  
+
     def set_order
       @item = Item.find(params[:item_id])
     end
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     end
 
     def pay_item
-      Payjp.api_key = "sk_test_a5d78a19c659eeed0a1a3a8c"
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: @item.price,
         card: order_params[:token],
