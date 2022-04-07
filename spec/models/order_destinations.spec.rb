@@ -38,7 +38,7 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it '都道府県が未選択では購入できないこと' do
-        @order_destination.ship_from_id = ''
+        @order_destination.ship_from_id = '1'
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Ship from can't be blank")
       end
@@ -57,11 +57,15 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
       end
+      it '電話番号が9桁以下では登録できないこと' do
+        @order_destination.phone_number = '111111111'
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include()
+      end
       it '電話番号が12桁以上では購入できないこと' do
         @order_destination.phone_number = '111111111111'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include('Phone number is invalid',
-                                                                   'Phone number is too long (maximum is 11 characters)')
+        expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
       end
       it '電話番号が全角数字では購入できないこと' do
         @order_destination.phone_number = '０９０１１１１１１１１'
