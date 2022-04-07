@@ -28,7 +28,7 @@
 | category_id       | integer    | null: false                    |
 | item_status_id    | integer    | null: false                    |
 | freight_id        | integer    | null: false                    |
-| ship_from _id     | integer    | null: false                    |
+| ship_from_id      | integer    | null: false                    |
 | day_to_ship_id    | integer    | null: false                    |
 
 ## Association
@@ -53,7 +53,7 @@
 | Column          | Type      | Option                            |
 |-----------------------------------------------------------------|
 | postal_code     | string     | null: false                      |
-| region_id       | integer    | null: false, foreign_key: true   |
+| ship_from_id    | integer    | null: false,                     |
 | city            | string     | null: false                      |
 | address         | string     | null: false                      |
 | building_name   | string     |                                  |
