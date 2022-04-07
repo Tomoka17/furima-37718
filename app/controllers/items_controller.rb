@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     else
       @item.user_id == current_user.id
       render 'edit'
-    end  
+    end
   end
 
   def update
@@ -40,9 +40,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-      @item.user_id == current_user.id
-      @item.destroy
-      redirect_to root_path  
+    @item.user_id == current_user.id
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -61,8 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless @item.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.user_id == current_user.id
   end
 end
