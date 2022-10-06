@@ -32,7 +32,7 @@
 | day_to_ship_id | integer | null: false |
 
 ## Association
- belongs_to :user
+ belongs_to :user,
  has_one :order
 
 
@@ -44,8 +44,8 @@
 | item | references | null: false, foreign_key: true |
 
 ## Association
- belongs_to :user
- belongs_to :item
+ belongs_to :user,
+ belongs_to :item,
  has_one :destination
 
 ## destinationsテーブル
